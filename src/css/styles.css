@@ -1,0 +1,161 @@
+@font-face {
+  font-family: "Yanone";
+  src: url("../fonts/Yanone\ Kaffeesatz.ttf");
+}
+
+:root {
+  --color-content-cards-background-25: rgba(255, 255, 255, 0.25);
+  --color-content-cards-background-50: rgba(255, 255, 255, 0.50);
+  --color-button-background:#61d6c3;
+  --color-button-background-hover: #3cbdaa;
+  --color-header-footer-background: #fff8f5;
+  --color-header-footer-text: black;
+  --color-text-red: red;
+  --font-general: "Yanone";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-image: url("../images/house_by_the_lake_drawing.jpeg");
+  height: 100vh;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  position: relative;
+
+  font-family: var(--font-general);
+}
+
+.main {
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 3rem 1fr 2rem;
+}
+
+.header {
+  background-color: var(--color-header-footer-background);
+
+  font-size: 2rem;
+
+  display: grid;
+  place-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.content .content-card {
+  padding: 1rem;
+  margin: 1rem;
+
+  border-radius: 1rem;
+
+  height: fit-content;
+
+  background-color: var(--color-content-cards-background-25);
+}
+
+.content .current-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content .current-weather * { 
+  height: 2.5rem;
+  border-radius: 1rem;
+}
+
+.content .current-weather .countries { 
+  font-family: "Yanone";
+  font-size: 1rem;
+  text-align: center;
+}
+
+.content .current-weather .location-input { 
+  font-family: "Yanone";
+  font-size: 1rem;
+  text-align: center;
+
+  border-style: none;
+}
+
+.content .current-weather .location-error-label {
+  background-color: var(--color-content-cards-background-50);
+  color: var(--color-text-red);
+  
+  display: grid;
+  place-content: center;
+}
+
+.content .current-weather button { 
+  background-color: var(--color-button-background);
+}
+
+.content .current-weather button:hover { 
+  background-color: var(--color-button-background-hover);
+}
+
+.content .current-weather .weather-results-div {
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.content .current-weather .weather {
+  height: fit-content;
+
+}
+
+.content .current-weather .weather.description-label { 
+  font-size: 2rem;
+}
+
+.content .current-weather .weather.location-name-label { 
+  font-size: 1.25rem;
+}
+
+.content .current-weather .weather-temp-icon-div {
+  height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.content .current-weather .weather.temperature-label { 
+  width: fit-content;
+  font-size: 4rem;
+}
+
+.content .current-weather .weather.icon-image { 
+  height: 4rem;
+  width: 4rem;
+}
+
+.footer {
+  background-color: var(--color-header-footer-background);
+  color: var(--color-header-footer-text);
+
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+footer a {
+  display: grid;
+  place-content: center;
+}
+
+footer img {
+  height: 1.2rem;
+}
