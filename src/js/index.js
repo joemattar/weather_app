@@ -196,7 +196,9 @@ function displayWeather() {
             results.weather[0].description
           );
           // Display weather location name
-          weatherLocationNameLabel.textContent = toTitleCase(results.name);
+          weatherLocationNameLabel.textContent = toTitleCase(
+            `${locationInput.value} - ${results.name}`
+          );
           // Display weather timestamp
           // Currently in user's locale timezone
           // To update for location timezone?
@@ -218,7 +220,7 @@ function displayWeather() {
           weatherTimestampLabel4.textContent = `${datefns.format(
             weatherTimestamp,
             "zzzz"
-          )} ${localTimezone}`;
+          )} ${localTimezone} - (User Locale Timezone)`;
           // Display weather temperature
           weatherTemperatureLabel.textContent = `${Math.round(
             results.main.temp
@@ -233,6 +235,11 @@ function displayWeather() {
       });
   }
 }
+
+// Add event listener to country select
+countrySelect.addEventListener("change", () => {
+  locationInput.value = "";
+});
 
 // Add event listener to button
 locationButton.addEventListener("click", displayWeather);
