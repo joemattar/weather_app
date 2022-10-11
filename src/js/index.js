@@ -6,6 +6,7 @@ import {
   urlWeatherIconStart,
   urlWeatherIconEnd,
 } from "./weather_api";
+import githubImage from "../images/github_logo.png";
 
 function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
@@ -171,7 +172,7 @@ footer.appendChild(footerA);
 
 // Footer img element
 const footerImg = document.createElement("img");
-footerImg.src = "../src/images/github_logo.png";
+footerImg.src = githubImage;
 footerA.appendChild(footerImg);
 
 // function display weather
