@@ -3,6 +3,15 @@
   src: url("../fonts/Yanone\ Kaffeesatz.ttf");
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 :root {
   --color-content-cards-background-25: rgba(255, 255, 255, 0.25);
   --color-content-cards-background-50: rgba(255, 255, 255, 0.50);
@@ -99,6 +108,18 @@ body {
 
 .content .current-weather button:hover { 
   background-color: var(--color-button-background-hover);
+}
+
+.content .current-weather .animation-div {
+  visibility: hidden;
+  animation: spin 2s infinite linear;
+
+  display: flex;
+  justify-content: center;
+}
+
+.content .current-weather .animation-div.loading {
+  visibility: visible;
 }
 
 .content .current-weather .weather-results-div {

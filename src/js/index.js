@@ -7,6 +7,7 @@ import {
   urlWeatherIconEnd,
 } from "./weather_api";
 import githubImage from "../images/github_logo.png";
+import loaderImage from "../images/loader.png";
 
 function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
@@ -96,6 +97,14 @@ const locationButton = document.createElement("button");
 locationButton.textContent = "FETCH WEATHER";
 currentWeatherDiv.appendChild(locationButton);
 
+// Create div to show loading animation
+const animationDiv = document.createElement("div");
+animationDiv.classList.add("animation-div");
+const animationImg = document.createElement("img");
+animationImg.src = loaderImage;
+animationDiv.appendChild(animationImg);
+currentWeatherDiv.appendChild(animationDiv);
+
 // Create div to bundle weather results
 const weatherResultsDiv = document.createElement("div");
 weatherResultsDiv.classList.add("weather-results-div");
@@ -177,18 +186,21 @@ footerA.appendChild(footerImg);
 
 // function display weather
 function displayWeather() {
+  animationDiv.classList.toggle("loading");
   locationErrorLabel.textContent = "";
   if (locationInput.validity.valid === false) {
     locationInput.setCustomValidity("");
     locationErrorLabel.textContent = `${getValidityState(
       locationInput.validity
     )}. Please enter a valid location.`;
+    animationDiv.classList.toggle("loading");
   } else {
     getCityCurrentWeather(locationInput.value, countrySelect.value)
       .then((results) => {
         if (results.cod !== 200) {
           locationErrorLabel.textContent =
             "Location does not exist. Please enter a new location";
+          animationDiv.classList.toggle("loading");
         } else {
           console.log(results);
           // Display weather description
@@ -228,6 +240,7 @@ function displayWeather() {
           // Display weather icon
           weatherIconImage.src = `${urlWeatherIconStart}${results.weather[0].icon}${urlWeatherIconEnd}`;
         }
+        animationDiv.classList.toggle("loading");
       })
       .catch(() => {
         locationErrorLabel.textContent =
