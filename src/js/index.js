@@ -245,6 +245,7 @@ function displayWeather() {
       .catch(() => {
         locationErrorLabel.textContent =
           "Location does not exist. Please enter a new location";
+        animationDiv.classList.toggle("loading");
       });
   }
 }
