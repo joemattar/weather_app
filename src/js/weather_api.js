@@ -1,5 +1,5 @@
 const apiKey = "49ba89f9e5b161b98ffa13a24b036797";
-const urlGeoLocation = "http://api.openweathermap.org/geo/1.0/direct";
+const urlGeoLocation = "https://api.openweathermap.org/geo/1.0/direct";
 const urlWeatherCurrrent = "https://api.openweathermap.org/data/2.5/weather";
 const urlWeatherIconStart = "https://openweathermap.org/img/wn/";
 const urlWeatherIconEnd = "@2x.png";
